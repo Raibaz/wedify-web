@@ -65,7 +65,8 @@ function updateTracklist() {
 				trackVotes = 0;
 			}
 			$('#tracks').append('<li data-votes="' + trackVotes + '" id="' + 
-								val._data.uuid + '">' + val._data.artist + " - " + val._data.title + " (" + trackVotes + ')' + 
+								val._data.uuid + '">' + val._data.artist + " - " + val._data.title + 
+								" <span id='trackvotes-" + val._data.uuid + "'>(" + trackVotes + ')</span>' + 
 								' <a class="votelink"><img src="like_icon.png" alt="Upvote"/></a></li>');
 		});
 	}, function() {
@@ -86,6 +87,9 @@ function doUpvote(event) {
 			votes: parent.data('votes') + 1
 		}
 	});
+	var currentVotes = $('#trackvotes-' + parent.attr('id')).html().replace('(', '').replace(')', '');
+	console.log(currentVotes);
+	$('#trackvotes-' + parent.attr('id')).html('(' + (parseInt(currentVotes) + 1) + ')');
 	track.save(function(err, result) {
 		if(err) {
 			console.log("Error updating votes");
