@@ -31,6 +31,9 @@ apigeeClient.login('Raibaz', 'ambasciata', function(err) {
 
 $(document).ready(function() {
 	$('#submit-playlist').click(doSubmitPlaylist);	
+	$('#playlist').click(function() {
+		$('#playlist').val('');
+	})
 	$(document).on('click', '.votelink', doUpvote);
 	setInterval(updateNowPlaying, 3500);
 	setInterval(updateTracklist, 5000);
@@ -94,6 +97,9 @@ function doUpvote(event) {
 }
 
 function doSubmitPlaylist() {
+	if($('#playlist').val() === '') {
+		return;
+	}
 	console.log($('#playlist').val());
 	var playlist = {
 		type: 'playlist',
