@@ -13,14 +13,37 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- If you are using the preview SDK for webplayer then uncomment the script below -->
     <!--script src="http://d1hza3lyffsoht.cloudfront.net/preview-sdk/bootstrap.js"></script-->
+    <style>
+        body {
+            background: url('background.jpg') top center no-repeat;
+            padding-left: 120px;
+            margin-right: 125px;
+        }
+
+        #container {
+            background-color: rgba(0, 0, 0, 0.6);            
+            color: white;
+        }
+        li img {
+            position: relative;
+            top: 3px;
+        }
+
+        a {
+            cursor: pointer;
+        }
+    </style>
   </head>
   <body>
-    <h1>Welcome to the wedding music player!</h1>    
-    <label for="playlist">Add a new playlist: </label><input type="text" id="playlist" name="playlist" value="spotify:user:daftpunkofficial:playlist:5nrg0D90OlFyveVfrQD0zE"/><a id="submit-playlist">Go!</a>
+    <div id="container">
+        <h1>Welcome to the wedding music player!</h1>    
+        <h2>Now playing: <span id="np-artist">&nbsp;</span> - <span id="np-title">&nbsp;</span></h2>
+        <label for="playlist">Add a new playlist: </label><input type="text" id="playlist" name="playlist" value="spotify:user:1167454529:playlist:7mHvv7rqHSMkUdM8iXmEBx"/><a id="submit-playlist">Go!</a>
 
-    <div id="trackscontainer">
-        <ul id="tracks">
-        </ul>
+        <div id="trackscontainer">
+            <ul id="tracks">
+            </ul>
+        </div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="scripts/apigee.min.js"></script>
